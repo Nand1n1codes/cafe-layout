@@ -1,0 +1,278 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap');
+
+:root {
+--gold:#c5a059;
+--gold-deep:#a68443;
+--dark:#050505;
+--gray:#111;
+--text:#fff;
+--muted:#888;
+--transition:all .6s cubic-bezier(.19,1,.22,1);
+--shadow:0 30px 80px rgba(0,0,0,.4);
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Montserrat',sans-serif;
+background:#fff;
+}
+
+/* NAVBAR */
+
+nav{
+position:fixed;
+width:100%;
+top:0;
+padding:30px 10%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,.75);
+backdrop-filter:blur(20px);
+z-index:1000;
+transition:.4s;
+}
+
+.brand-logo{
+color:var(--gold);
+font-size:2rem;
+letter-spacing:2px;
+text-decoration:none;
+}
+
+.nav-menu{
+display:flex;
+list-style:none;
+}
+
+.nav-item{
+margin-left:50px;
+}
+
+.nav-link{
+color:#fff;
+text-decoration:none;
+position:relative;
+font-weight:300;
+}
+
+.nav-link::after{
+content:"";
+position:absolute;
+width:0;
+height:1px;
+background:var(--gold);
+left:0;
+bottom:-6px;
+transition:.4s;
+}
+
+.nav-link:hover::after{
+width:100%;
+}
+
+/* HERO */
+
+.hero-engine{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+color:#fff;
+position:relative;
+background:url(hero.jpg) center/cover;
+}
+
+.hero-engine::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+to bottom,
+rgba(0,0,0,.6),
+rgba(0,0,0,.9)
+);
+}
+
+.hero-title{
+font-size:5rem;
+z-index:2;
+letter-spacing:3px;
+animation:fadeUp 1.4s ease;
+}
+
+.hero-cta{
+z-index:2;
+margin-top:40px;
+padding:18px 60px;
+border:1px solid var(--gold);
+color:var(--gold);
+text-decoration:none;
+letter-spacing:2px;
+transition:var(--transition);
+}
+
+.hero-cta:hover{
+background:var(--gold);
+color:#000;
+box-shadow:0 10px 40px rgba(197,160,89,.4);
+}
+
+/* STORY */
+
+.philosophy-section{
+padding:160px 10%;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:100px;
+align-items:center;
+}
+
+.visual-frame{
+overflow:hidden;
+box-shadow:var(--shadow);
+}
+
+.visual-frame img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:1.2s;
+}
+
+.visual-frame:hover img{
+transform:scale(1.1);
+}
+
+.philosophy-section h2{
+font-size:2.8rem;
+margin-bottom:20px;
+}
+
+.philosophy-section p{
+color:#555;
+line-height:1.8;
+}
+
+/* MENU */
+
+.menu-system{
+padding:160px 10%;
+background:#fafafa;
+}
+
+.menu-matrix{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:50px;
+}
+
+.menu-card{
+overflow:hidden;
+position:relative;
+cursor:pointer;
+box-shadow:var(--shadow);
+}
+
+.menu-card img{
+width:100%;
+height:420px;
+object-fit:cover;
+transition:1s;
+}
+
+.menu-card:hover img{
+transform:scale(1.1);
+}
+
+.menu-card::after{
+content:"View Dish";
+position:absolute;
+bottom:20px;
+left:20px;
+color:#fff;
+opacity:0;
+transition:.5s;
+}
+
+.menu-card:hover::after{
+opacity:1;
+}
+
+.menu-card::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+transparent,
+rgba(0,0,0,.8)
+);
+opacity:0;
+transition:.5s;
+}
+
+.menu-card:hover::before{
+opacity:1;
+}
+
+/* FOOTER */
+
+.footer-matrix{
+padding:120px 10%;
+background:#000;
+color:#fff;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:60px;
+}
+
+/* ANIMATION */
+
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* MOBILE */
+
+@media(max-width:1024px){
+
+.menu-matrix{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+@media(max-width:768px){
+
+.hero-title{
+font-size:2.5rem;
+}
+
+.philosophy-section{
+grid-template-columns:1fr;
+padding:80px 20px;
+}
+
+.menu-matrix{
+grid-template-columns:1fr;
+}
+
+}
